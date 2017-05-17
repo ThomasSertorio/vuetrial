@@ -16,7 +16,7 @@ var employees = new Vue({
     $.ajax({
       url: Routes.employees_path("json"),
       success: function(res){
-        that.employees = res;
+        that.employees = res.employees;
       }
     });
   },
