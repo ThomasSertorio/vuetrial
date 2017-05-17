@@ -1,4 +1,4 @@
-<script type="text/x-template" id="employee-row">
+<template id="employee-row">
   <tr>
     <td>
       <!-- Show input when in edit mode -->
@@ -22,6 +22,13 @@
       <div v-else>{{ employee.manager ? '&#10004;' : '' }}</div>
     </td>
     <td>
+      <job-desc
+        v-for="(job, index) in employee.jobs"
+        :key="job.id"
+        :job="job">
+        </job-desc>
+    </td>
+    <td>
       <!-- Save button calls updateEmployee -->
       <button v-if="editMode" v-on:click="updateEmployee">Save</button>
       <!-- Edit button puts row into edit mode -->
@@ -29,10 +36,8 @@
       <!-- Promote / Demote based on current status -->
       <button v-if="!editMode" v-on:click="toggleManagerStatus">{{ employee.manager ? 'Demote' : 'Promote' }}</button>
       <button v-if="!editMode" v-on:click="fireEmployee" style="color:red">Fire</button>
-
-
-
-
     </td>
   </tr>
-</script>
+</template>
+
+<%= render 'components/job-desc' %>
