@@ -1,46 +1,43 @@
-
 <h1>Employees</h1>
 
-<div id="employees">
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Manager</th>
-      </tr>
-    </thead>
-    <tbody>
-      <employee-row
-        v-for="(employee, index) in employees"
-        :key="employee.id"
-        :employee="employee"
-        v-on:fire-employee="fireEmployee">
-      </employee-row>
-      <tr>
-        <td>
-          <!-- Input -->
-          <input type="text" v-model="employee.name"><br>
-          <!-- Validation errors -->
-          <span style="color:red">{{ errors.name }}</span>
-        </td>
-        <td>
-          <!-- Input -->
-          <input type="text" v-model="employee.email"><br>
-          <!-- Validation errors -->
-          <span style="color:red">{{ errors.email }}</span>
-        </td>
-        <td><input type="checkbox" v-model="employee.manager"></td>
-        <!-- button click calls hireEmployee -->
-        <td><button v-on:click="hireEmployee">Hire</button></td>
-      </tr>
 
+  <div id="employees">
+    <md-tabs md-fixed>
+      <md-tab id="employee_section" md-label="Employees">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Manager</th>
+            </tr>
+          </thead>
+          <tbody>
+            <employee-row
+              v-for="(employee, index) in employees"
+              :key="employee.id"
+              :employee="employee"
+              v-on:fire-employee="fireEmployee">
+            </employee-row>
+            <new-employee
+              :key="new_employee"
+              :employee="new_employee"
+              :errors="errors"
+              v-on:hire-employee="hireEmployee">
+            </new-employee>
+          </tbody>
+        </table>
+      </md-tab>
 
+      <md-tab id="jobs_section" md-label="Jobs">
+        <p>nihil</p>
+      </md-tab>
+    </md-tabs>
+  </div>
 
-
-    </tbody>
-  </table>
-</div>
 
 <!-- HTML Vue Component Templates -->
 <%= render 'components/employee-row' %>
+<%= render 'components/new-employee' %>
+
+

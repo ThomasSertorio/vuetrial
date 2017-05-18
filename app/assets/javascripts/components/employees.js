@@ -2,7 +2,7 @@ var employees = new Vue({
   el: '#employees',
   data: {
     employees: [],
-    employee: {
+    new_employee: {
       name: '',
       email: '',
       manager: 'false'
@@ -26,18 +26,18 @@ var employees = new Vue({
       $.ajax({
         method: 'POST',
         data: {
-          employee: that.employee,
+          employee: that.new_employee,
         },
         url: Routes.employees_path("json"),
         success: function(res){
           that.errors = {};
           that.employees.push(res);
-          employee = {
+          new_employee = {
             name: '',
             email: '',
             manager: 'false'
           };
-          that.employee = employee;
+          that.new_employee = new_employee;
         },
         error: function(res) {
           that.errors = res.responseJSON.errors;

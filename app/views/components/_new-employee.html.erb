@@ -1,0 +1,25 @@
+<template id="new-employee">
+  <tr>
+    <td>
+      <!-- Input -->
+      <input type="text" v-model="employee.name"><br>
+      <!-- Validation errors -->
+      <span style="color:red">{{ errors.name }}</span>
+    </td>
+    <td>
+      <!-- Input -->
+      <input type="text" v-model="employee.email"><br>
+      <!-- Validation errors -->
+      <span style="color:red">{{ errors.email }}</span>
+    </td>
+    <td><input type="checkbox" v-model="employee.manager"></td>
+    <!-- button click calls hireEmployee -->
+    <td><button v-on:click="hireEmployee">Hire</button></td>
+    <td>
+      <span>This is what you'll get sucker</span>
+      <div>
+        {{ employee.name }}
+      </div>
+    </td>
+  </tr>
+</template>
