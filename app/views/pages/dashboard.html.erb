@@ -1,18 +1,15 @@
 <div id="campaign_management">
   <campaign-goals
-    :key="campaign.id"
-    :campaign="campaign">
+    :campaign="campaign"
+  >
   </campaign-goals>
-  <router-link to="/selector">INFLUENCER SELECTOR</router-link>
-  <router-link to="/listing">LISTE INFLUENCERS</router-link>
-  <router-view></router-view>
-
-
+  <span>{{ campaign.id }} - {{ campaign.reach }}</span>
 </div>
 
-<template id="campaign-goals">
-  <div>
-    <p>Campaign Objectives</p>
-    <p>{{ campaign.reach }}</p>
-  </div>
-</template>
+<!-- Components templates -->
+<%= render 'templates/campaign_goals' %>
+
+<!-- Components js -->
+<% content_for(:after_js) do %>
+  <%= javascript_pack_tag 'campaign_management' %>
+<% end %>

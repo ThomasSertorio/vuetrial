@@ -25,20 +25,16 @@
         </new-employee>
       </tbody>
     </table>
-    <md-tabs md-fixed>
-      <md-tab id="employee_section" md-label="Employees">
-        <p>Intégration de composant test materialize</p>
-      </md-tab>
-
-      <md-tab id="jobs_section" md-label="Jobs">
-        <p>Smelly cat</p>
-      </md-tab>
-    </md-tabs>
   </div>
 
 
-<!-- HTML Vue Component Templates -->
-<%= render 'components/employee-row' %>
-<%= render 'components/new-employee' %>
+<!-- Components templates -->
+<%= render 'templates/employee_row' %>
+<%= render 'templates/new_employee' %>
+
+<!-- Components js -->
+<% content_for(:after_js) do %>
+  <%= javascript_pack_tag 'employee_management' %>
+<% end %>
 
 

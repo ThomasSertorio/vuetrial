@@ -1,3 +1,5 @@
+import Vue from 'vue/dist/vue.esm'
+import JobDesc from './job_desc'
 Vue.component('employee-row', {
   template: '#employee-row',
   props: {

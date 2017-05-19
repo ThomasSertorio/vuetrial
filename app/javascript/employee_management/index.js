@@ -1,4 +1,9 @@
-var employees = new Vue({
+import Vue from 'vue/dist/vue.esm'
+import EmployeeRow from './components/employee_row'
+import NewEmployee from './components/new_employee'
+
+// Employee Management Instance
+new Vue({
   el: '#employees',
   data: {
     employees: [],
@@ -32,7 +37,7 @@ var employees = new Vue({
         success: function(res){
           that.errors = {};
           that.employees.push(res);
-          new_employee = {
+          var new_employee = {
             name: '',
             email: '',
             manager: 'false'
@@ -60,4 +65,3 @@ var employees = new Vue({
     }
   }
 })
-

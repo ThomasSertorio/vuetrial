@@ -1,3 +1,4 @@
+import Vue from 'vue/dist/vue.esm'
 Vue.component('new-employee', {
   template: '#new-employee',
   props: {
